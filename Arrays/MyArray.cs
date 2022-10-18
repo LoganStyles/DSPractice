@@ -32,6 +32,28 @@ public class MyArray
 
         _items[_count++] = item;
     }
+    /// removes an item at a certain index.
+    ///
+    /// This operation shrinks the array - hence we only process n-1 items to avoid IndexOutOfRangeException.
+    ///@param index the index to be removed
+    public void RemoveAt(int index)
+    {
+        if (index < 0 || index >= _count)
+            throw new IndexOutOfRangeException("Invalid index supplied");
+
+        if (index == _count - 1)
+        {
+            --_count;
+            return;
+        }
+
+        for (int i = index; i < _count-1; i++)
+        {
+            _items[i] = _items[i + 1];
+        }
+
+        _count--;
+    }
 
 
     public void DisplayArray()
