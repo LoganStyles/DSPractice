@@ -36,15 +36,26 @@ numbers.DisplayArray();
 
 #region Find the common items in two arrays
 
-int[] array1 = { 10, 11, 11, 22, 30, 40 };
-int[] array2 = { 10, 16, 11, 12, 30, 50, 56 };
+// int[] array1 = { 10, 11, 11, 22, 30, 40 };
+// int[] array2 = { 10, 16, 11, 12, 30, 50, 56 };
 
-var result = numbers.Intersect(array1, array2);
-Console.Write("The common items are - ");
-for (int i = 0; i < result.Length; i++)
+// var result = MyArray.Intersect(array1, array2);
+// Console.Write("The common items are - ");
+// for (int i = 0; i < result.Length; i++)
+// {
+//     Console.Write($"{result[i]} ");
+// }
+#endregion
+
+#region Test the intersect method
+
+TestResult[] results = IntersectTestRunner.executeTests();
+foreach (var item in results)
 {
-    Console.Write($"{result[i]} ");
+    Console.Write(item.succeeded);
+    Console.WriteLine(" " + item.reason);
 }
+
 #endregion
 
 #endregion
