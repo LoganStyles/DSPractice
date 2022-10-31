@@ -34,6 +34,13 @@ numbers.DisplayArray();
 // Console.WriteLine(String.Format("The largest item is {0}", numbers.Max()));
 #endregion
 
+#region  Insert an item at a specific index
+Console.WriteLine("Inserting a new item");
+numbers.InsertAt(72, 2);
+numbers.DisplayArray();
+
+#endregion
+
 #region Find the common items in two arrays
 
 // int[] array1 = { 10, 11, 11, 22, 30, 40 };
@@ -49,12 +56,12 @@ numbers.DisplayArray();
 
 #region Test the intersect method
 
-TestResult[] results = IntersectTestRunner.executeTests();
-foreach (var item in results)
-{
-    Console.Write(item.succeeded);
-    Console.WriteLine(" " + item.reason);
-}
+// TestResult[] results = IntersectTestRunner.executeTests();
+// foreach (var item in results)
+// {
+//     Console.Write(item.succeeded);
+//     Console.WriteLine(" " + item.reason);
+// }
 
 #endregion
 
