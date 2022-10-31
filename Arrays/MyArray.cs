@@ -16,7 +16,7 @@ public class MyArray
 
     /// inserts an item at a certain index.
     ///
-    /// This operation expands the array when it is full.
+    /// This operation expands the array when if it is full.
     /// @param item the item to be inserted
     /// @note Big O time complexity => O(n)
     public void Insert(int item)
@@ -37,6 +37,48 @@ public class MyArray
 
         _items[_count++] = item;
     }
+
+    /// inserts an item at a certain index.
+    ///
+    /// This operation expands the array if it is full. it also shifts items if necessary
+    /// @param item the item to be inserted
+    /// @param index the position of the item to be inserted
+    /// @note Big O time complexity => O(n)
+    public void InsertAt(int item, int index)
+    {
+
+        if (index < 0 || index > _items.Length)
+            throw new IndexOutOfRangeException("Invalid index provided");
+
+        if (_count == _items.Length)
+        {
+
+            int[] newItems = new int[_count * 2];
+            for (int i = 0; i < _items.Length; i++)
+            {
+                newItems[i] = _items[i];
+            }
+            _items = newItems;
+        }
+
+        //shift items to the right if required index is occupied
+        if (index < _count)
+        {
+            var shiftIndex = index;
+            var current = _items[shiftIndex];
+            while (shiftIndex < _count)
+            {
+                var next = _items[shiftIndex + 1];
+                _items[++shiftIndex] = current;
+                current = next;
+            }
+
+        }
+        _items[index] = item;
+        _count++;
+
+    }
+
     /// removes an item at a certain index.
     ///
     /// This operation shrinks the array - hence we only process n-1 items to avoid IndexOutOfRangeException.
@@ -77,7 +119,7 @@ public class MyArray
 
     /// searches for the maximum item in an array.
     ///
-    /// @note Big O time complexity => O(n)
+    /// @note Big O time complexity => O(n) or theta n
     public int Max()
     {
         if (_count == 0)
