@@ -88,7 +88,8 @@ public class MyLinkedLists
     {
         var current = _first;
 
-        while (current != null){
+        while (current != null)
+        {
             if (current.Val == item)
                 return true;
             current = current.Next;
@@ -101,7 +102,8 @@ public class MyLinkedLists
         var index = 0;
         var current = _first;
 
-        while (current != null){
+        while (current != null)
+        {
             if (current.Val == item)
                 return index;
             current = current.Next;
@@ -111,6 +113,65 @@ public class MyLinkedLists
         return -1;
     }
 
+    public void Reverse()
+    {
+        if (IsEmpty())
+            return;
+        //10->20->30
+        var previous = _first;//{10,->20}
+        var current = _first.Next;//{20,->30}
+
+        while (current != null)
+        {
+            var next = current.Next;//{30,->null},{null,null}
+            current.Next = previous;//{20,->10}, {30, ->20}
+
+            previous = current;//{10,->20}->{20,->10}, {20,->10}->{30, ->20}
+            current = next;//{30,->null}-> {null,null}
+        }
+
+        _last = _first; //{10,->20}
+        _last.Next = null;//{10,null}
+        _first = previous;//{30, ->20}
+    }
+
+    public int GetKthNodeFromTheEnd(int k)
+    {
+        if (k <= 0)
+            throw new ArgumentOutOfRangeException("K has an invalid value");
+
+        if (IsEmpty())
+            throw new InvalidOperationException("List is empty!");
+
+        Node leadNode = _first;
+        Node targetNode = _first;
+
+        for (var i = 0; i < k - 1; i++)
+        {
+            leadNode = leadNode.Next;
+            if (leadNode == null)
+                throw new ArgumentOutOfRangeException("K has an invalid value");
+        }
+
+        while (leadNode.Next != null)
+        {
+            targetNode = targetNode.Next;
+            leadNode = leadNode.Next;
+        }
+
+        return targetNode.Val;
+    }
+
+    public void Display(MyLinkedLists list)
+    {
+        var current = list._first;
+
+        while (current != null)
+        {
+            Console.WriteLine(current.Val);
+            current = current.Next;
+        }
+    }
     private bool IsEmpty()
     {
         return _first == null;
