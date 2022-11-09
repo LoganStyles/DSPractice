@@ -50,7 +50,7 @@ public class MyLinkedLists
     public void DeleteFirst()
     {
         if (IsEmpty())
-            throw new IndexOutOfRangeException("No item to delete");
+            return;
 
         //if only one node exists
         if (_first == _last)
@@ -69,7 +69,7 @@ public class MyLinkedLists
     public void DeleteLast()
     {
         if (IsEmpty())
-            throw new IndexOutOfRangeException("No item to delete");
+            return;
 
         //if only one node exists
         if (_first == _last)
@@ -83,6 +83,99 @@ public class MyLinkedLists
 
         _count--;
     }
+
+    #region DeleteValue
+
+    /* this method requires Node class & _first to be public */
+    // public Node DeleteValueIterative(Node head, int target)
+    // {
+    //     if (head.Val == target)
+    //         return head.Next;
+
+    //     Node current = head;
+    //     Node previous = head;
+
+    //     while (current != null)
+    //     {
+    //         if (current.Val == target)
+    //         {
+    //             previous.Next = current.Next;
+    //         }
+    //         previous = current;
+    //         current = current.Next;
+    //     }
+
+    //     return head;
+    // }
+    //{10->20->30}
+    // public Node DeleteValueRecursive(Node head, int target)
+    // {
+
+    //     if (head.Val == target)
+    //         return head.Next;
+
+    //     _DeleteValueRecursive(head, target, head);
+    //     return head;
+    // }
+
+    private void _DeleteValueRecursive(Node current, int target, Node previous)
+    {
+        if (current == null)
+            return;
+
+        if (current.Val == target)
+        {
+            previous.Next = current.Next;
+            return;
+        }
+
+        _DeleteValueRecursive(current.Next, target, current);
+    }
+
+    #endregion
+
+    #region DeleteMiddle
+    public void DeleteMiddle()
+    {
+        if (IsEmpty())
+            return;
+
+        var middleNode = GetMiddleNode();
+        var previousOfMiddle = GetPreviousOfMiddle(middleNode);
+        var nextOfMiddle = middleNode.Next;
+        previousOfMiddle.Next = nextOfMiddle;
+    }
+
+    private Node GetMiddleNode()
+    {
+        /* method implemented without _last */
+        Node leadNode = _first;
+        Node targetNode = _first;
+
+        while (leadNode.Next != null && leadNode.Next.Next != null)
+        {
+            leadNode = leadNode.Next.Next;
+            targetNode = targetNode.Next;
+        }
+
+        return targetNode;
+    }
+
+    private Node GetPreviousOfMiddle(Node node)
+    {
+        var current = _first;
+
+        while (current != null)
+        {
+            if (current.Next.Val == node.Val)
+                return current;
+
+            current = current.Next;
+        }
+        return null;
+    }
+
+    #endregion
 
     public bool Contains(int item)
     {
@@ -218,6 +311,18 @@ public class MyLinkedLists
             current = current.Next;
         }
     }
+
+    // public void Display(Node node)
+    // {
+    //     var current = node;
+
+    //     while (current != null)
+    //     {
+    //         Console.WriteLine(current.Val);
+    //         current = current.Next;
+    //     }
+    // }
+
     private bool IsEmpty()
     {
         return _first == null;
