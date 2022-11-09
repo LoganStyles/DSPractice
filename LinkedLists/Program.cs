@@ -7,6 +7,7 @@ lists.AddLast(20);
 lists.AddLast(30);
 lists.AddLast(40);
 lists.AddLast(50);
+lists.AddLast(80);
 
 // lists.Display(lists);
 
@@ -14,4 +15,7 @@ lists.AddLast(50);
 // lists.Display(lists);
 
 //kth node from the end
-Console.WriteLine(lists.GetKthNodeFromTheEnd(3));
+// Console.WriteLine(lists.GetKthNodeFromTheEnd(3));
+
+//print the middle node(s)
+lists.PrintMiddle();

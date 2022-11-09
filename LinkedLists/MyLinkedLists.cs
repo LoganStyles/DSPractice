@@ -113,6 +113,7 @@ public class MyLinkedLists
         return -1;
     }
 
+    #region  Exercises
     public void Reverse()
     {
         if (IsEmpty())
@@ -153,7 +154,7 @@ public class MyLinkedLists
                 throw new ArgumentOutOfRangeException("K has an invalid value");
         }
 
-        while (leadNode.Next != null)
+        while (leadNode.Next != null) //or while(leadNode != _last)
         {
             targetNode = targetNode.Next;
             leadNode = leadNode.Next;
@@ -161,6 +162,51 @@ public class MyLinkedLists
 
         return targetNode.Val;
     }
+
+    public void PrintMiddle()
+    {
+        //[10,20,30]
+        //[10,20,30,40]
+        if (IsEmpty())
+            throw new InvalidOperationException("List is empty!");
+
+        Node leadNode = _first;
+        Node targetNode = _first;
+
+        while (leadNode != _last && leadNode.Next != _last)
+        {
+            targetNode = targetNode.Next;
+            leadNode = leadNode.Next.Next;
+        }
+
+        if (leadNode.Next == _last)
+            Console.WriteLine($"Middle Node is : {targetNode.Val} and {targetNode.Next.Val}");
+        else
+            Console.WriteLine($"Middle Node is {targetNode.Val}");
+    }
+
+    public bool HasLoop()
+    {
+
+        if (IsEmpty())
+            throw new InvalidOperationException("List is empty!");
+
+        Node leadNode = _first;
+        Node targetNode = _first;
+
+        while (leadNode != null)
+        {
+            targetNode = targetNode.Next;
+            leadNode = leadNode.Next.Next;
+
+            if (leadNode.Val == targetNode.Val || leadNode.Next.Equals(targetNode))
+                return true;
+        }
+
+        return false;
+    }
+
+    #endregion
 
     public void Display(MyLinkedLists list)
     {
