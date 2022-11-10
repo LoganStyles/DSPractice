@@ -86,6 +86,18 @@ public class MyLinkedLists
 
     #region DeleteValue
 
+    /*
+         * write a funt deleteVal(head,val) that accepts the head node of a linkedlist
+         * and a value as an argument.
+         * 
+         * the funt should delete the node of the linked list that contains the given value.
+         * 
+         * The funt should return the head of the list.
+         * 
+         * assume that the linked list only contains unique values.
+         * 
+         */
+
     /* this method requires Node class & _first to be public */
     // public Node DeleteValueIterative(Node head, int target)
     // {
