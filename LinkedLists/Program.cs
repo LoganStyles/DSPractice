@@ -1,15 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, Linkedlists!");
 
-var lists = new MyLinkedLists();
-lists.AddLast(10);
-lists.AddLast(20);
-lists.AddLast(30);
-lists.AddLast(40);
-lists.AddLast(50);
-lists.AddLast(80);
+// var lists = new MyLinkedLists();
+// lists.AddLast(10);
+// lists.AddLast(20);
+// lists.AddLast(30);
+// lists.AddLast(40);
+// lists.AddLast(50);
+// lists.AddLast(80);
 
-lists.Display(lists);
+// lists.Display(lists);
 
 // lists.Reverse();
 // lists.Display(lists);
@@ -30,16 +30,24 @@ lists.Display(lists);
 // lists.Display(result);
 
 // --RECURSIVE
-// var recursivelists = new MyRecursiveLinkedList();
-// recursivelists.AddLast(10);
-// recursivelists.AddLast(20);
-// recursivelists.AddLast(30);
-// recursivelists.AddLast(40);
-// recursivelists.AddLast(50);
-// recursivelists.AddLast(80);
+var recursivelists = new MyRecursiveLinkedList();
+recursivelists.AddLast(10);
+recursivelists.AddLast(20);
+recursivelists.AddLast(30);
+recursivelists.AddLast(40);
+recursivelists.AddLast(50);
+recursivelists.AddLast(80);
 
-// recursivelists.Display(recursivelists);
+recursivelists.Display(recursivelists);
 
 // Console.WriteLine(recursivelists.Contains(410));
 
 // Console.WriteLine($"Sum is {recursivelists.Sum()}");
+
+// var head = recursivelists.ReverseListIterative(recursivelists._first);
+// var head = recursivelists.ReverseListIterative(null);
+// var head = recursivelists.ReverseListRecursive(null);
+// var head = recursivelists.ReverseListRecursive(recursivelists._first);
+// var head = recursivelists.RecursiveListRecursiveAlt(recursivelists._first);
+// Console.WriteLine("---");
+// recursivelists.Display(head);
