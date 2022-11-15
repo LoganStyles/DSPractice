@@ -3,7 +3,7 @@ using System.Text;
 
 public class StringReverser
 {
-    /// returns a reversed string.
+    /// returns a reversed string using StringBuilder.
     ///
     /// .
     /// @returns a reversed string
