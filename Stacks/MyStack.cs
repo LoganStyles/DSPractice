@@ -16,6 +16,10 @@ public class MyStack
         _count = 0;
     }
 
+    /// <summary>
+    /// inserts an integer at the end of the stack
+    /// </summary>
+    /// <param name="item">Represents the item to insert </param>
     public void Push(int item)
     {
         /* add item into the array
@@ -33,6 +37,10 @@ public class MyStack
         _items[_count++] = item;
     }
 
+    /// <summary>
+    /// fetches the item at the top of the stack
+    /// </summary>
+    /// <returns>The the item at the top of the stack</returns>
     public int Peek()
     {
         /* fetch the item at the last valid index
@@ -42,6 +50,10 @@ public class MyStack
         return _items[_count - 1];
     }
 
+    /// <summary>
+    /// fetches & removes the item at the top of the stack
+    /// </summary>
+    /// <returns>The item at the top of the stack</returns>
     public int Pop()
     {
         /* fetch the item at the last valid index
@@ -54,6 +66,9 @@ public class MyStack
         return itemAtTop;
     }
 
+    /// <summary>
+    /// determines if the stack is empty
+    /// </summary>
     public bool IsEmpty()
     {
         return _count == 0;
@@ -61,6 +76,8 @@ public class MyStack
 
     public static void Display(MyStack stack)
     {
+        if (stack._count == 0)
+            return;
         foreach (var item in stack._items)
             Console.WriteLine(item);
     }
