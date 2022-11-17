@@ -72,15 +72,15 @@
 
 #region -- My Two Stacks
 
-MyTwoStacks stack = new(5);
-stack.Push1(10);
-stack.Push1(20);
+// MyTwoStacks stack = new(5);
+// stack.Push1(10);
+// stack.Push1(20);
 // stack.Push1(30);
-stack.Push2(40);
-stack.Push2(50);
-stack.Push2(60);
+// stack.Push2(40);
+// stack.Push2(50);
+// stack.Push2(60);
 
-MyTwoStacks.Display(stack);
+// MyTwoStacks.Display(stack);
 
 // is first stack empty?
 // Console.WriteLine("First Stack is {0}empty.",stack.IsEmpty1() ? "": "NOT ");
@@ -95,17 +95,43 @@ MyTwoStacks.Display(stack);
 // Console.WriteLine("Second Stack is {0}full.",stack.IsFull2() ? "": "NOT ");
 
 // pop the first stack
-Console.WriteLine($"Popped item from first stack is {stack.Pop1()}");
-MyTwoStacks.Display(stack);
-Console.WriteLine("---");
-stack.Push1(30);
-MyTwoStacks.Display(stack);
+// Console.WriteLine($"Popped item from first stack is {stack.Pop1()}");
+// MyTwoStacks.Display(stack);
+// Console.WriteLine("---");
+// stack.Push1(30);
+// MyTwoStacks.Display(stack);
 
 // pop the second stack
-Console.WriteLine($"Popped item from second stack is {stack.Pop2()}");
-MyTwoStacks.Display(stack);
-Console.WriteLine("---");
-stack.Push2(100);
-MyTwoStacks.Display(stack);
+// Console.WriteLine($"Popped item from second stack is {stack.Pop2()}");
+// MyTwoStacks.Display(stack);
+// Console.WriteLine("---");
+// stack.Push2(100);
+// MyTwoStacks.Display(stack);
 
+#endregion
+
+#region MinStack
+
+MinStack stack = new();
+stack.Push(5);
+stack.Push(2);
+stack.Push(10);
+stack.Push(1);
+
+// MinStack.Display(stack);
+// min
+Console.WriteLine("----");
+Console.WriteLine($"Minimum value in stack is {stack.Min()}");
+
+// pop
+Console.WriteLine($"Popped item is {stack.Pop()}");
+// MinStack.Display(stack);
+
+// min
+Console.WriteLine("----");
+Console.WriteLine($"Minimum value in stack is {stack.Min()}");
+
+Console.WriteLine($"Popped item is {stack.Pop()}");
+Console.WriteLine($"Popped item is {stack.Pop()}");
+Console.WriteLine($"Popped item is {stack.Pop()}");
 #endregion
